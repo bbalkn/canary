@@ -87,5 +87,11 @@ class UserController extends Controller
         return redirect('/admin');
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('adminControl');
+    }
+
 
 }

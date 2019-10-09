@@ -73,3 +73,12 @@ Route::get('/admin', [ 'as' => 'user.edit', 'uses' => 'UserController@edit']);
 
 
 Route::get('users/{user}', 'UserController@show')->name('user.show');
+
+//Route::get('/admin','AdminController@index');
+
+//Route::get('/admin/control','AdminController@index')->middleware(['adminControl','auth']);
+
+
+Route::get('admin_area', ['middleware' => 'adminControl', function () {
+    return view('home');
+}]);

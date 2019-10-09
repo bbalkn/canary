@@ -76,5 +76,12 @@ class User extends Authenticatable
         return (bool) $user->isAdmin;
     }
 
+    public function adminControl() {
+        if ($this->isAdmin == '1') {
+            return true;
+        }
+        return false;
+    }
+
 
 }
