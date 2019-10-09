@@ -11,7 +11,6 @@ class UserController extends Controller
 
     public function adminshow(Request $request, User $user)
     {
-        dd($request);
         return view('admin', compact('user'));
     }
 
@@ -22,7 +21,6 @@ class UserController extends Controller
     }
 
     public function sendUser(User $user){
-        dd($user);
         return view('user', compact('user'));
     }
 
@@ -87,11 +85,7 @@ class UserController extends Controller
         return redirect('/admin');
     }
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('adminControl');
-    }
+
 
 
 }

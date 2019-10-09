@@ -69,7 +69,7 @@ Route::get('/api/tweets', function (){
 //Route::get('/admin', 'UserController@edit')->name('');
 
 Route::post('/admin/{userid}', 'UserController@edited');
-Route::get('/admin', [ 'as' => 'user.edit', 'uses' => 'UserController@edit']);
+Route::get('/admin', [ 'as' => 'user.edit', 'uses' => 'UserController@edit']); //->middleware('adminControl');
 
 
 Route::get('users/{user}', 'UserController@show')->name('user.show');
