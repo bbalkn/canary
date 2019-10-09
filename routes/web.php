@@ -60,7 +60,7 @@ Route::get('/api/tweets', function (){
     ->middleware('is_admin')
     ->name('admin');*/
 
-Route::get('/admin/users', 'UserController@changeUserName')->name('user.changeUserName');
+//Route::get('/admin/users', 'UserController@changeUserName')->name('user.changeUserName');
 
 /*Route::get('/admin', function () {
     return view('admin');
@@ -69,4 +69,16 @@ Route::get('/admin/users', 'UserController@changeUserName')->name('user.changeUs
 //Route::get('/admin', 'UserController@edit')->name('');
 
 Route::post('/admin/{userid}', 'UserController@edited');
-Route::get('/admin', [ 'as' => 'user.edit', 'uses' => 'UserController@edit']);
+Route::get('/admin', [ 'as' => 'user.edit', 'uses' => 'UserController@edit']); //->middleware('adminControl');
+
+
+Route::get('users/{user}', 'UserController@show')->name('user.show');
+
+//Route::get('/admin','AdminController@index');
+
+//Route::get('/admin/control','AdminController@index')->middleware(['adminControl','auth']);
+
+
+Route::get('admin_area', ['middleware' => 'adminControl', function () {
+    return view('home');
+}]);
